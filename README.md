@@ -32,3 +32,5 @@ configuration.itemBackgroundColor = [UIColor blueColor];  //分栏按钮背景�
 ······
 LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self]
 ```
+
+[我的博客][http://www.jianshu.com/users/0cf7d455eb9e/latest_articles]
