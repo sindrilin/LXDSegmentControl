@@ -21,10 +21,12 @@
 `LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self];`<br>
 
 # 自定义属性
-```LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithItems: items];<br>
-```configuration.backgroundColor = [UIColor orangleColor];   //分栏控制器背景颜色<br>
-```configuration.cornerRadius = 5.f;         //分栏控制器圆角半径<br>
-```configuration.cornerWidth = 0.5f;         //分栏控制器边缘宽度<br>
-```configuration.itemBackgroundColor = [UIColor blueColor];  //分栏按钮背景颜色<br>
-```······<br>
-```LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self]<br>
+```objc
+LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithItems: items];<br>
+configuration.backgroundColor = [UIColor orangleColor];   //分栏控制器背景颜色<br>
+configuration.cornerRadius = 5.f;         //分栏控制器圆角半径<br>
+configuration.cornerWidth = 0.5f;         //分栏控制器边缘宽度<br>
+configuration.itemBackgroundColor = [UIColor blueColor];  //分栏按钮背景颜色<br>
+······<br>
+LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self]<br>
+```
