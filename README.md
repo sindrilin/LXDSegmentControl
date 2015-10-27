@@ -15,10 +15,12 @@
 * 监听LXDSegmentControlSelectIndexNotification通知，通过LXDSegmentControlIndexKey获取选中下标
 
 # 使用方法
+```objc
 //配置分栏控制器按钮数据数组<br>
-`LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"红", @"绿", @"蓝"]];`<br>
+LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"红", @"绿", @"蓝"]];<br>
 //使用配置对象创建分栏控制器<br>
-`LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self];`<br>
+LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self];<br>
+```
 
 # 自定义属性
 ```objc
