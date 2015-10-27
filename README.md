@@ -17,18 +17,18 @@
 # 使用方法
 ```objc
 //配置分栏控制器按钮数据数组<br>
-LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"红", @"绿", @"蓝"]];<br>
-//使用配置对象创建分栏控制器<br>
-LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self];<br>
+LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"红", @"绿", @"蓝"]];
+//使用配置对象创建分栏控制器
+LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self];
 ```
 
 # 自定义属性
 ```objc
-LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithItems: items];<br>
-configuration.backgroundColor = [UIColor orangleColor];   //分栏控制器背景颜色<br>
-configuration.cornerRadius = 5.f;         //分栏控制器圆角半径<br>
-configuration.cornerWidth = 0.5f;         //分栏控制器边缘宽度<br>
-configuration.itemBackgroundColor = [UIColor blueColor];  //分栏按钮背景颜色<br>
-······<br>
-LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self]<br>
+LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithItems: items];
+configuration.backgroundColor = [UIColor orangleColor];   //分栏控制器背景颜色
+configuration.cornerRadius = 5.f;         //分栏控制器圆角半径
+configuration.cornerWidth = 0.5f;         //分栏控制器边缘宽度
+configuration.itemBackgroundColor = [UIColor blueColor];  //分栏按钮背景颜色
+······
+LXDSegmentControl * segmentControl = [LXDSegmentControl segmentControlWithFrame: CGRectMake(CGRectGetWidth(self.view.frame) * 0.5f - 100.f, 10.f, 200.f, 30.f) configuration: configuration delegate: self]
 ```
