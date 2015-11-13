@@ -12,6 +12,7 @@
 #define SMALLSCALE 0.75f
 #define INITSCALE 1.f
 #define BIGSCALE 1.25f
+#define ANIMATION_DURATION 0.15f
 #define CLEAR_COLOR [UIColor clearColor]
 
 

@@ -82,6 +82,7 @@
     self.itemSelectedColor = CLEAR_COLOR;
     self.itemTextColor = [UIColor colorWithWhite: 0.2f alpha: 0.9f];
     self.itemSelectedTextColor = kNumberColor(0x28ac85);
+    self.animationDuration = ANIMATION_DURATION;
     self.slideBlockColor = kNumberColor(0x28ac85);
 }
 
@@ -99,6 +100,7 @@
     self.itemSelectedColor = kRGB(123, 189, 229);
     self.itemTextColor = kRGB(123, 189, 229);
     self.itemSelectedTextColor = [UIColor whiteColor];
+    self.animationDuration = ANIMATION_DURATION;
     self.slideBlockColor = CLEAR_COLOR;
 }
 
@@ -114,6 +116,7 @@
     self.itemSelectedColor = CLEAR_COLOR;
     self.itemTextColor = [UIColor colorWithWhite: 0.2f alpha: 0.9f];
     self.itemSelectedTextColor = kRGB(223, 83, 84);
+    self.animationDuration = ANIMATION_DURATION;
     self.slideBlockColor = CLEAR_COLOR;
 }
 

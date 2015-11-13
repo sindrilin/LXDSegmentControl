@@ -53,6 +53,8 @@
 /*! 分栏按钮的选中字体颜色*/
 @property (nonatomic, strong) UIColor * itemSelectedTextColor;
 
+/*! 点击动画时间*/
+@property (nonatomic, assign) NSTimeInterval animationDuration;
 /*! 滑块颜色*/
 @property (nonatomic, strong) UIColor * slideBlockColor;
 

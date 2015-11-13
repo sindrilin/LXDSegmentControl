@@ -135,7 +135,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     [_currentItem setSelected: NO];
     _currentItem.backgroundColor = _configuration.itemBackgroundColor;
     
-    [UIView animateWithDuration: 0.2f animations: ^{
+    [UIView animateWithDuration: _configuration.animationDuration animations: ^{
         _currentItem.transform = CGAffineTransformMakeScale(_configuration.itemNormalScale, _configuration.itemNormalScale);
         currentItem.transform = CGAffineTransformMakeScale(_configuration.itemSelectScale, _configuration.itemSelectScale);
     }];
@@ -192,7 +192,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
         CGRect frame = _slideBlock.frame;
         CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
         frame.origin.x = (index + 0.25f) * itemWidth;
-        [UIView animateWithDuration: 0.15f animations: ^{
+        [UIView animateWithDuration: _configuration.animationDuration animations: ^{
             _slideBlock.frame = frame;
         }];
     }
