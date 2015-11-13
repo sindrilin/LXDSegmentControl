@@ -61,8 +61,8 @@ extern NSString * const LXDSegmentControlIndexKey;
 @property (nonatomic, weak) UIPageControl * pageControl;
 
 /*!
- *  @property   pageControl
- *  @abstract   页面显示视图。如果此项不为空，分栏控制器可以控制页面显示控件的移动
+ *  @property   currentIndex
+ *  @abstract   控制器当前选中的分栏下标
  */
 @property (nonatomic, assign) NSUInteger currentIndex;
 
