@@ -144,6 +144,16 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     _currentItem = currentItem;
 }
 
+/**
+ *  设置选中下标
+ */
+- (void)setCurrentIndex: (NSUInteger)currentIndex
+{
+    if (_currentIndex == currentIndex || currentIndex >= _configuration.items.count) { return; }
+    UIButton * clickedButton = [self viewWithTag: BUTTONINITTAG+currentIndex];
+    [self setCurrentItem: clickedButton];
+}
+
 
 #pragma mark - event
 /*!
@@ -167,6 +177,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
  */
 - (void)changeAssociateViewWithIndex: (NSUInteger)index
 {
+    _currentIndex = index;
     if (_scrollView) {
         if (_scrollView.contentSize.width / CGRectGetWidth(_scrollView.frame) >= index) {
             [_scrollView setContentOffset: CGPointMake(index * CGRectGetWidth(_scrollView.frame), 0) animated: YES];
