@@ -151,7 +151,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 {
     if (_currentIndex == currentIndex || currentIndex >= _configuration.items.count) { return; }
     UIButton * clickedButton = [self viewWithTag: BUTTONINITTAG+currentIndex];
-    [self setCurrentItem: clickedButton];
+    [self clickSegmentItem: clickedButton];
 }
 
 

@@ -40,6 +40,7 @@
     LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
     slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
     [self.view addSubview: slideControl];
+    slideControl.currentIndex = 2;
     
     LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
     LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
