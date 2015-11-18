@@ -49,6 +49,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame: CGRectMake(0, 30, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 30) collectionViewLayout: layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.pagingEnabled = YES;
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass: [LXDImageCell class] forCellWithReuseIdentifier: @"cell"];
     }
