@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LXDSegmentControl.h"
 #import "LXDScrollViewController.h"
+#import "LXDImageBrowser.h"
 
 @interface ViewController ()
 
@@ -33,24 +34,29 @@
 //    }
 //
     
-    CGRect frame = CGRectMake(0, 0, 200.f, 35.f);
-    NSArray * items = @[@"123", @"456", @"789"];
     
-    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: items];
-    LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
-    slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
-    [self.view addSubview: slideControl];
-    slideControl.currentIndex = 2;
+    LXDImageBrowser * browser = [[LXDImageBrowser alloc] initWithFrame: CGRectMake(0, 80, CGRectGetWidth(self.view.frame), 300) dataSource: @[[NSClassFromString(@"LXDImage") new], [NSClassFromString(@"LXDImage") new], [NSClassFromString(@"LXDImage") new]]];
+    [self.view addSubview: browser];
     
-    LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
-    LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
-    selectControl.center = (CGPoint){ self.view.center.x, self.view.center.y };
-    [self.view addSubview: selectControl];
     
-    LXDSegmentControlConfiguration * scale = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeScaleTitle items: items];
-    LXDSegmentControl * scaleControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: scale delegate: nil];
-    scaleControl.center = (CGPoint){ self.view.center.x, self.view.center.y + 80 };
-    [self.view addSubview: scaleControl];
+//    CGRect frame = CGRectMake(0, 0, 200.f, 35.f);
+//    NSArray * items = @[@"123", @"456", @"789"];
+//    
+//    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: items];
+//    LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
+//    slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
+//    [self.view addSubview: slideControl];
+//    slideControl.currentIndex = 2;
+//    
+//    LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
+//    LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
+//    selectControl.center = (CGPoint){ self.view.center.x, self.view.center.y };
+//    [self.view addSubview: selectControl];
+//    
+//    LXDSegmentControlConfiguration * scale = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeScaleTitle items: items];
+//    LXDSegmentControl * scaleControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: scale delegate: nil];
+//    scaleControl.center = (CGPoint){ self.view.center.x, self.view.center.y + 80 };
+//    [self.view addSubview: scaleControl];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,7 +22,7 @@ extern NSString * const LXDSegmentControlIndexKey;
 
 /*! 
  *  @method segmentControl: didSelectAtIndex:
- *  @abstract   点击分栏按钮回调协议方法
+ *  @abstract   点击分栏按钮回调协议方法。如果要刷新数据源显示，应该在这个方法中进行刷新
  */
 - (void)segmentControl: (LXDSegmentControl *)segmentControl didSelectAtIndex: (NSUInteger)index;
 
@@ -62,7 +62,7 @@ extern NSString * const LXDSegmentControlIndexKey;
 
 /*!
  *  @property   currentIndex
- *  @abstract   控制器当前选中的分栏下标
+ *  @abstract   控制器当前选中的分栏下标。不要直接通过获取此下标来刷新数据源
  */
 @property (nonatomic, assign) NSUInteger currentIndex;
 
