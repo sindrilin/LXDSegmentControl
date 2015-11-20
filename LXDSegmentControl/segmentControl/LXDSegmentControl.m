@@ -79,7 +79,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     if (_configuration.controlType == LXDSegmentControlTypeSlideBlock) {
         [self addSubview: self.slideBlock];
     } else if (_configuration.controlType == LXDSegmentControlTypeSeparate) {
-        
+        [self initSeparateItems];
     }
 }
 

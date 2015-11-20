@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "LXDSegmentControl.h"
 #import "LXDScrollViewController.h"
-#import "LXDImageBrowser.h"
 
 @interface ViewController ()
 
@@ -32,22 +31,17 @@
 //        [button addTarget: self action: @selector(showSegmentControlEffect:) forControlEvents: UIControlEventTouchUpInside];
 //        [self.view addSubview: button];
 //    }
-//
     
     
-    LXDImageBrowser * browser = [[LXDImageBrowser alloc] initWithFrame: CGRectMake(0, 80, CGRectGetWidth(self.view.frame), 300) dataSource: @[[NSClassFromString(@"LXDImage") new], [NSClassFromString(@"LXDImage") new], [NSClassFromString(@"LXDImage") new]]];
-    [self.view addSubview: browser];
+    CGRect frame = CGRectMake(0, 0, 200.f, 35.f);
+    NSArray * items = @[@"123", @"456", @"789"];
     
+    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSeparate items: items];
+    LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
+    slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
+    [self.view addSubview: slideControl];
     
-//    CGRect frame = CGRectMake(0, 0, 200.f, 35.f);
-//    NSArray * items = @[@"123", @"456", @"789"];
-//    
-//    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: items];
-//    LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
-//    slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
-//    [self.view addSubview: slideControl];
-//    slideControl.currentIndex = 2;
-//    
+
 //    LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
 //    LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
 //    selectControl.center = (CGPoint){ self.view.center.x, self.view.center.y };

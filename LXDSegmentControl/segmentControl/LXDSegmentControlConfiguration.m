@@ -69,7 +69,7 @@
             break;
             
         case LXDSegmentControlTypeSeparate:
-            
+            [self separateConfiguration];
             break;
     }
 }
