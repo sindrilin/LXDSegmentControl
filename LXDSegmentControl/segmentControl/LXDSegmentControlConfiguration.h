@@ -55,6 +55,8 @@
 
 /*! 点击动画时间*/
 @property (nonatomic, assign) NSTimeInterval animationDuration;
+/*! 滑块下方空白高度*/
+@property (nonatomic, assign) CGFloat slideBottomDistance;
 /*! 滑块颜色*/
 @property (nonatomic, strong) UIColor * slideBlockColor;
 /*! 分隔栏颜色*/

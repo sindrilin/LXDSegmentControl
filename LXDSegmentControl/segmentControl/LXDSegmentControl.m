@@ -132,7 +132,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     if (!_slideBlock) {
         CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
         CGFloat height = CGRectGetHeight(self.bounds);
-        _slideBlock = [[UIView alloc] initWithFrame: CGRectMake(itemWidth * 0.25f, height - 3.f, itemWidth * 0.5f, 2.f)];
+        _slideBlock = [[UIView alloc] initWithFrame: CGRectMake(itemWidth * 0.25f, height - _configuration.slideBottomDistance, itemWidth * 0.5f, 2.f)];
         _slideBlock.backgroundColor = _configuration.slideBlockColor;
     }
     return _slideBlock;

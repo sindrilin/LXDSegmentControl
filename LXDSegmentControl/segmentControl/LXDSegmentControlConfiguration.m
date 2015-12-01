@@ -89,6 +89,7 @@
     self.animationDuration = ANIMATION_DURATION;
     self.slideBlockColor = kNumberColor(0x28ac85);
     self.separateItemColor = CLEAR_COLOR;
+    self.slideBottomDistance = 3;
 }
 
 /*!
