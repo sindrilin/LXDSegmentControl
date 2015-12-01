@@ -15,6 +15,7 @@ XCode7.0以及以上版本
 * LXDSegmentControlTypeSlideBlock   分栏控制器是滑块样式，点击分栏按钮移动滑块
 * LXDSegmentControlTypeSelectBlock  分栏控制器是圆角矩形样式，点击分栏按钮切换选中颜色
 * LXDSegmentControlTypeScaleTitle   分栏控制器是标题样式，点击分栏按钮放大选中标题
+* LXDSegmentControlTypeSeparate	    分栏控制器是分隔样式，每个按钮之间用一个竖线分隔
 
 # 回调方式
 
