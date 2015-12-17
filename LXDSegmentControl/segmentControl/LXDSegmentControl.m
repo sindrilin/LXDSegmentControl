@@ -8,6 +8,7 @@
 
 #import "LXDSegmentControl.h"
 
+#define CONTROLHEIGHT 30
 #define BUTTONINITTAG 10000
 NSString * const LXDSegmentControlSelectIndexNotification = @"LXDSegmentControlSelectIndexNotification";
 NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
@@ -26,14 +27,14 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 
 #pragma mark - initializer - 构造器
 /*!
- *  @method initWithConfiguration:
- *  @abstract   使用属性配置对象构造分栏控制器
+ @method initWithConfiguration:
+ @abstract   使用属性配置对象构造分栏控制器
  */
 - (instancetype)initWithFrame: (CGRect)frame configuration: (LXDSegmentControlConfiguration *)configuration delegate: (id<LXDSegmentControlDelegate>)delegate
 {
-    frame.size.height = 30.f;
+    frame.size.height = CONTROLHEIGHT;
     if (self = [super initWithFrame: frame]) {
-        self.configuration = configuration;
+        self.configuration = (configuration ?: [LXDSegmentControlConfiguration new]);
         self.delegate = delegate;
         
         [self setupSelf];
@@ -43,8 +44,8 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 }
 
 /*!
- *  @method segmentControlWithConfiguration:
- *  @abstract   使用属性配置对象构造分栏控制器
+ @method segmentControlWithConfiguration:
+ @abstract   使用属性配置对象构造分栏控制器
  */
 + (instancetype)segmentControlWithFrame: (CGRect)frame configuration: (LXDSegmentControlConfiguration *)configuration delegate: (id<LXDSegmentControlDelegate>)delegate
 {
@@ -132,7 +133,9 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     if (!_slideBlock) {
         CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
         CGFloat height = CGRectGetHeight(self.bounds);
-        _slideBlock = [[UIView alloc] initWithFrame: CGRectMake(itemWidth * 0.25f, height - _configuration.slideBottomDistance, itemWidth * 0.5f, 2.f)];
+        
+        CGFloat blockWidth = MAX(MIN(_configuration.slideBlockWidth, itemWidth), itemWidth / 2);
+        _slideBlock = [[UIView alloc] initWithFrame: CGRectMake((itemWidth - blockWidth) / 2, height - _configuration.slideBottomDistance, blockWidth, 2.f)];
         _slideBlock.backgroundColor = _configuration.slideBlockColor;
     }
     return _slideBlock;

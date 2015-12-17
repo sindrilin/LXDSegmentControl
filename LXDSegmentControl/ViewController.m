@@ -36,21 +36,29 @@
     CGRect frame = CGRectMake(0, 0, 200.f, 35.f);
     NSArray * items = @[@"123", @"456", @"789"];
     
-    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSeparate items: items];
+    /// 滑块
+    LXDSegmentControlConfiguration * slide = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: items];
     LXDSegmentControl * slideControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: slide delegate: nil];
-    slideControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
+    slideControl.center = CGPointMake(self.view.center.x, self.view.center.y - 160);
     [self.view addSubview: slideControl];
     
-
-//    LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
-//    LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
-//    selectControl.center = (CGPoint){ self.view.center.x, self.view.center.y };
-//    [self.view addSubview: selectControl];
-//    
-//    LXDSegmentControlConfiguration * scale = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeScaleTitle items: items];
-//    LXDSegmentControl * scaleControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: scale delegate: nil];
-//    scaleControl.center = (CGPoint){ self.view.center.x, self.view.center.y + 80 };
-//    [self.view addSubview: scaleControl];
+    /// 分隔
+    LXDSegmentControlConfiguration * separate = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSeparate items: items];
+    LXDSegmentControl * separateControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: separate delegate: nil];
+    separateControl.center = (CGPoint){ self.view.center.x, self.view.center.y - 80 };
+    [self.view addSubview: separateControl];
+    
+    /// 选中
+    LXDSegmentControlConfiguration * select = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSelectBlock items: items];
+    LXDSegmentControl * selectControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: select delegate: nil];
+    selectControl.center = (CGPoint){ self.view.center.x, self.view.center.y };
+    [self.view addSubview: selectControl];
+    
+    /// 形变
+    LXDSegmentControlConfiguration * scale = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeScaleTitle items: items];
+    LXDSegmentControl * scaleControl = [LXDSegmentControl segmentControlWithFrame: frame configuration: scale delegate: nil];
+    scaleControl.center = (CGPoint){ self.view.center.x, self.view.center.y + 80 };
+    [self.view addSubview: scaleControl];
 }
 
 - (void)didReceiveMemoryWarning {
