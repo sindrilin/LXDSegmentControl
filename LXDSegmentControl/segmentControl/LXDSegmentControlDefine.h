@@ -21,6 +21,8 @@
 #define ANIMATION_DURATION 0.15f
 /// 透明色
 #define CLEAR_COLOR [UIColor clearColor]
+/// 字体默认大小
+#define FONTSIZE 16
 
 
 /*! 分栏控制器类型。不同类型有不同默认属性*/

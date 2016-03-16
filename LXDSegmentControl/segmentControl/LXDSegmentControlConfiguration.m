@@ -72,6 +72,7 @@
             [self separateConfiguration];
             break;
     }
+    self.itemTextFont = [UIFont systemFontOfSize: FONTSIZE];
 }
 
 /*!

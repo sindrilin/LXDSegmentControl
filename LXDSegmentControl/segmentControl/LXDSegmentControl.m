@@ -78,7 +78,9 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
         if (idx == 0) { [self clickSegmentItem: item]; }
     }];
     if (_configuration.controlType == LXDSegmentControlTypeSlideBlock) {
-        [self addSubview: self.slideBlock];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self addSubview: self.slideBlock];
+        });
     } else if (_configuration.controlType == LXDSegmentControlTypeSeparate) {
         [self initSeparateItems];
     }
@@ -96,6 +98,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     UIButton * segmentItem = [[UIButton alloc] initWithFrame: CGRectMake(index * itemWidth, 0, itemWidth, itemHeight)];
     
     segmentItem.tag = BUTTONINITTAG + index;
+    segmentItem.titleLabel.font = _configuration.itemTextFont;
     segmentItem.backgroundColor = _configuration.itemBackgroundColor;
     [segmentItem setTitleColor: _configuration.itemTextColor forState: UIControlStateNormal];
     [segmentItem setTitleColor: _configuration.itemSelectedTextColor forState: UIControlStateSelected];
@@ -229,11 +232,13 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 - (void)callbackWithIndex: (NSUInteger)index
 {
     _configuration.currentIndex = index;
-    if ([_delegate respondsToSelector: @selector(segmentControl:didSelectAtIndex:)]) {
-        [_delegate segmentControl: self didSelectAtIndex: index];
-    } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName: LXDSegmentControlSelectIndexNotification object: self userInfo: @{LXDSegmentControlIndexKey: @(index)}];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([_delegate respondsToSelector: @selector(segmentControl:didSelectAtIndex:)]) {
+            [_delegate segmentControl: self didSelectAtIndex: index];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName: LXDSegmentControlSelectIndexNotification object: self userInfo: @{LXDSegmentControlIndexKey: @(index)}];
+        }
+    });
 }
 
 
