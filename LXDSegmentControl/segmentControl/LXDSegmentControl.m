@@ -239,7 +239,8 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
     if (_slideBlock) {
         CGRect frame = _slideBlock.frame;
         CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
-        frame.origin.x = (index + 0.25f) * itemWidth;
+        CGFloat blockWidth = MAX(MIN(_configuration.slideBlockWidth, itemWidth), itemWidth / 2);
+        frame.origin.x = index * itemWidth + (itemWidth - blockWidth) / 2;
         [UIView animateWithDuration: _configuration.animationDuration animations: ^{
             _slideBlock.frame = frame;
         }];
