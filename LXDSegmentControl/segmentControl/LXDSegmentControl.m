@@ -87,15 +87,39 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 }
 
 
+#pragma mark - 重布局子视图
+/*!
+ *  重新布局子视图
+ */
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    for (UIView * subview in self.subviews) {
+        if ([subview isKindOfClass: [UIButton class]]) {
+            UIButton * item = (UIButton *)subview;
+            NSInteger index = item.tag - BUTTONINITTAG;
+            CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
+            CGFloat itemHeight = CGRectGetHeight(self.bounds);
+            item.frame = CGRectMake(index * itemWidth, 0, itemWidth, itemHeight);
+        }
+    }
+    
+    if (_slideBlock) {
+        CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
+        CGFloat height = CGRectGetHeight(self.bounds);
+        CGFloat blockWidth = MAX(MIN(_configuration.slideBlockWidth, itemWidth), itemWidth / 2);
+        _slideBlock.frame = CGRectMake(floor((itemWidth - blockWidth) / 2) + (_currentItem.tag - BUTTONINITTAG) * itemWidth, height - _configuration.slideBottomDistance, blockWidth, 2.f);
+    }
+}
+
+
 #pragma mark - subview init - 子控件初始化
 /*!
  *  创建分隔栏按钮
  */
 - (UIButton *)segmentItemWithIndex: (NSUInteger)index
 {
-    CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
-    CGFloat itemHeight = CGRectGetHeight(self.bounds);
-    UIButton * segmentItem = [[UIButton alloc] initWithFrame: CGRectMake(index * itemWidth, 0, itemWidth, itemHeight)];
+    UIButton * segmentItem = [[UIButton alloc] initWithFrame: CGRectZero];
     
     segmentItem.tag = BUTTONINITTAG + index;
     segmentItem.titleLabel.font = _configuration.itemTextFont;
@@ -134,11 +158,7 @@ NSString * const LXDSegmentControlIndexKey = @"LXDSegmentControlIndexKey";
 - (UIView *)slideBlock
 {
     if (!_slideBlock) {
-        CGFloat itemWidth = CGRectGetWidth(self.bounds) / _configuration.items.count;
-        CGFloat height = CGRectGetHeight(self.bounds);
-        
-        CGFloat blockWidth = MAX(MIN(_configuration.slideBlockWidth, itemWidth), itemWidth / 2);
-        _slideBlock = [[UIView alloc] initWithFrame: CGRectMake((itemWidth - blockWidth) / 2, height - _configuration.slideBottomDistance, blockWidth, 2.f)];
+        _slideBlock = [[UIView alloc] initWithFrame: CGRectZero];
         _slideBlock.backgroundColor = _configuration.slideBlockColor;
     }
     return _slideBlock;
